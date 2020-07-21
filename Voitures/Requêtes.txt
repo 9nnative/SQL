@@ -1,0 +1,72 @@
+*------------------------------------------------------------------------------------*
+
+1) Lister les véhicules (plaque immatriculation + modèle + marque) de marque française
+
+	SELECT plaque, nom_marque, nom_modele, nom_origine
+	FROM modele mo, voiture v, marque ma, origine o
+	WHERE o.ID_ORIGINE = ma.ID_ORIGINE
+	AND mo.ID_MARQUE = ma.ID_MARQUE
+	AND v.ID_MODELE = mo.ID_MODELE
+	AND nom_origine = 'france'
+
+*------------------------------------------------------------------------------------*
+
+2) Nombre de véhicules par marque (trié par nombre de véhicules décroissant)
+
+	SELECT nom_marque, COUNT(*)
+	FROM marque ma, voiture v, modele mo
+	WHERE V.ID_MODELE = mo.ID_MODELE
+	AND mo.ID_MARQUE = MA.ID_MARQUE
+	GROUP BY nom_marque
+
+*------------------------------------------------------------------------------------*
+
+3) Nombre de véhicules par motorisation (même tri que la 2)
+
+	SELECT nom_motorisation, COUNT(*)
+	FROM motorisation mo, voiture v
+	WHERE v.ID_MOTORISATION = mo.ID_MOTORISATION
+	GROUP BY nom_motorisation
+	
+*------------------------------------------------------------------------------------*	
+	
+4) Nombre de véhicules de chaque nationalité (même tri que la 2)
+
+	SELECT nom_origine, COUNT(*) AS nb
+	FROM origine o, voiture v, modele mo, marque ma
+	WHERE mo.ID_MARQUE = MA.ID_MARQUE
+	AND o.ID_ORIGINE = ma.ID_ORIGINE
+	AND mo.ID_MODELE = v.ID_MODELE
+	GROUP BY nom_origine
+	ORDER BY nb
+
+*------------------------------------------------------------------------------------*
+
+5) Lister les véhicules de couleur grises ET rouge
+
+	SELECT plaque
+	FROM voiture v, couleur cou, colore co
+	WHERE v.id_voiture 
+	IN (
+    SELECT v.id_voiture
+    FROM voiture v, couleur cou, colore co
+    WHERE v.id_voiture
+    AND v.id_voiture = co.id_voiture
+    AND co.id_couleur = cou.id_couleur
+    AND cou.nom_couleur = 'Rouge')
+	AND v.id_voiture = co.id_voiture
+	AND co.id_couleur = cou.id_couleur
+	AND cou.nom_couleur = 'Gris'
+	
+*------------------------------------------------------------------------------------*
+
+6) Lister les véhicules Essence et dont l’origine est allemande
+
+	SELECT nom_modele, nom_origine, nom_motorisation
+	FROM modele mo, motorisation mx, voiture v, origine o
+	WHERE v.ID_MOTORISATION = mx.ID_MOTORISATION
+	AND v.ID_MODELE = mo.ID_MODELE
+	AND nom_origine = "Allemagne"
+	AND nom_motorisation = "Essence"
+
+
