@@ -1,0 +1,71 @@
+1)
+SELECT nom_lieu, COUNT(*) 
+FROM villageois v, lieu l 
+WHERE v.ID_LIEU = l.ID_LIEU 
+GROUP BY nom_lieu
+2)
+SELECT nom, nom_lieu, nom_specialite
+FROM villageois v, lieu l, specialite s
+WHERE v.ID_LIEU = l.ID_LIEU
+AND V.ID_VILLAGEOIS = s.ID_SPECIALITE
+ORDER BY nom_specialite, nom
+3)
+SELECT nom_specialite, COUNT(*) AS nb
+FROM villageois v, specialite s 
+WHERE v.ID_SPECIALITE = s.ID_SPECIALITE 
+GROUP BY nom_specialite 
+ORDER BY nb DESC
+4)
+SELECT nom_bataille, nom_lieu, DATE_FORMAT(date_bataille,"%d/%m/%Y") 
+FROM bataille b, lieu l 
+WHERE b.ID_LIEU = l.ID_LIEU
+5)
+SELECT nom_potion, SUM(cout_ingredient*qte) AS prixtotal 
+FROM potion p, ingredient i, compose c
+WHERE p.ID_POTION = c.ID_POTION 
+AND i.ID_INGREDIENT = c.ID_INGREDIENT
+GROUP BY nom_potion
+ORDER BY prixtotal DESC 
+6)
+SELECT nom_ingredient, cout_ingredient, qte, cout_ingredient*qte AS total
+FROM potion p, ingredient i, compose c
+WHERE i.ID_INGREDIENT = c.ID_INGREDIENT
+AND p.ID_POTION = c.ID_POTION
+AND nom_potion = 'Potion V'
+
+7)
+        !--------
+		---------!
+8)
+SELECT nom, SUM(dose) AS totaldose
+FROM villageois v, boit b
+WHERE v.ID_VILLAGEOIS = b.ID_VILLAGEOIS
+GROUP BY nom
+ORDER BY totaldose DESC
+9)
+		!---------
+		----------!
+10)
+SELECT nom_type_casque, COUNT(*) AS nb, SUM(cout_casque) AS prix
+FROM type_casque tc, casque c
+WHERE tc.ID_TYPE_CASQUE = c.ID_TYPE_CASQUE
+GROUP BY nom_type_casque
+ORDER BY nb DESC 
+11)
+SELECT nom_potion
+FROM potion p, compose c, ingredient i
+WHERE p.ID_POTION = c.ID_POTION
+AND c.ID_INGREDIENT = i.ID_INGREDIENT
+AND nom_ingredient = 'cerise'
+12)
+SELECT nom, total 
+FROM casques_baborum
+HAVING total (SELECT MAX(total) from casques_baborum
+
+vue : SELECT nom, SUM(QTE) AS total
+
+
+
+
+
+
