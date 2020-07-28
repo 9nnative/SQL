@@ -1,0 +1,10 @@
+Permettre à n'importe quel utilisateur de se co, avec des infos perso (mdp)
+
+Base de donnée USER avec une table 
+
+- id INT
+- username VARCHAR 32
+- password VARCHAR 70
+- email VARCHAR 80 (Clic droit, trouver un nouvel index - UNIQUE)
+- date d'inscription DATETIME 
+
