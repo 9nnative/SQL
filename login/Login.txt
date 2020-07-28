@@ -1,0 +1,37 @@
+Permettre à n'importe quel utilisateur de se co, avec des infos perso 
+
+SQL
+*--------------------------------------------------------------------------*
+Base de donnée USER avec une table                                         
+
+- id INT
+- username VARCHAR 32
+- password VARCHAR 70
+- email VARCHAR 80 (Clic droit, trouver un nouvel index - UNIQUE)
+- date d'inscription DATETIME 
+
+PHP
+*--------------------------------------------------------------------------*
+<?php 
+
+    $username = "user";
+    $email = "skdfj@gmail.com";
+    $password = "sdsd79ù";
+
+    $pdo = new PDO('mysql:host=localhost:3306;dbname=NOMBASEDEDEDONNEE', 'root', ' ');
+
+    $pdo->query("SELECT * FROM user");
+
+    Statement : requête en attente
+
+    OAuth ou OAuth2*
+   
+   password verify
+
+    
+  -> youtube HASH
+
+
+Utiliser _SESSION pour la connection 
+
+
