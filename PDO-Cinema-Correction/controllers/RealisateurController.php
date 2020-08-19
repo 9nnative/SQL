@@ -69,7 +69,7 @@ class RealisateurController {
         require "views/realisateur/addReal.php";
     }
     
-    /**
+    /**   
      * formEditRealisateur
      *
      * @param  mixed $id
@@ -144,5 +144,11 @@ class RealisateurController {
             ]);
 
         header("Location: index.php?action=listReal");
+    }
+
+    public function countReal($id) {
+        $dao = new DAO();
+        $countreal ="COUNT nom_realisateur" ;
+
     }
 }
