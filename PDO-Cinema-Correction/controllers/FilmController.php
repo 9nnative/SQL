@@ -13,7 +13,7 @@ class FilmController {
 
         $dao = new DAO();
         $sql = "SELECT f.id_film, titre_film, annee_film, note_film, GROUP_CONCAT(nom_genre SEPARATOR ', ') AS genres, 
-            CONCAT(nom_realisateur,' ',nom_realisateur) AS rea
+            CONCAT(nom_realisateur,' ',prenom_realisateur) AS rea
                     FROM film f, genre g, genre_film gf, realisateur r
                     WHERE f.id_film = gf.id_film 
                     AND g.id_genre = gf.id_genre

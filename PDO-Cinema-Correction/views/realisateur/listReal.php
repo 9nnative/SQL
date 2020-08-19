@@ -18,7 +18,7 @@
                 <tr>
                     <td><?= $realisateur["nom_realisateur"] ?></td>
                     <td><?= $realisateur["prenom_realisateur"] ?></td>
-                    <td><?= $countreal["nom_realisateur"]?></td>
+            
                     <td>
                         <a href="index.php?action=editRealisateur&id=<?= $realisateur["id_realisateur"] ?>">Editer</a>
                         <a href="index.php?action=deleteRealisateur&id=<?= $realisateur["id_realisateur"] ?>">Supprimer</a>

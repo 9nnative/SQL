@@ -1,7 +1,79 @@
-h2 {
-    color: red;
+* {
+box-sizing: border-box; 
+text-decoration: none;
+color: rgb(2, 2, 2);
 }
 
-.unchecked{
-    height: 20px;
+body {
+margin: 0;
+padding: 0;
+background-color: #FBAB7E;
+background-image: linear-gradient(62deg, #FBAB7E 0%, #F7CE68 100%);
+
+
+
+width: 100%;
+height: 100vh;
+font-family: Helvetica;
+
+display: flex;
+flex-direction: column;
+
 }
+
+h2 {
+color: rgb(0, 0, 0);
+font-family: Helvetica;
+}
+
+.container:hover{
+
+    background-image: url('https://image.noelshack.com/fichiers/2016/26/1467309320-risitas158.png');
+}
+.container{
+    display: flex;
+    align-items: center;
+    margin: auto;
+}
+.container ul {
+display: flex;
+
+list-style-type: none;
+
+}
+
+ul li {
+font-size: 23px;
+cursor: pointer;
+position: relative;
+margin: 0 1.4em;
+padding: 0.7em 0.8em;
+transition: all 0.2s;
+transition-delay: 0.2s;
+
+}
+
+ul li::before {
+content: "";
+position: absolute;
+bottom: 0;
+left: 0px;
+width: 100%;
+height: 4px;
+
+background-color: white;
+transition: all  0.2s;
+}
+
+ul li:hover {
+
+}
+
+ul li:hover::before {
+bottom: 56px;
+left: 0;
+background-color : black;
+
+
+}
+
