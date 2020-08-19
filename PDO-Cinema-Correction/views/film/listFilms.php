@@ -22,7 +22,7 @@
     while($film = $films->fetch()) { 
         
         $stars = str_repeat("<span class='fa fa-star'></span>", $film["note_film"] );
-    $starsnull = str_repeat("<img class ='unchecked'src ='https://github.com/9nnative/SQL/blob/master/PDO-Cinema-Correction/images/empty_star.png?raw=true'>", 5 - $film["note_film"] );
+    $starsnull = str_repeat("<img class ='unchecked'src ='https://github.com/9nnative/SQL/blob/master/PDO-Cinema-Correction/images/empty_starv2.png?raw=true'>", 5 - $film["note_film"] );
     
     ?>
         <tr>
